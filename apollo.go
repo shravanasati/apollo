@@ -10,7 +10,7 @@ import (
 
 const (
 	NAME    = "apollo"
-	VERSION = "0.1.0"
+	VERSION = "0.1.1"
 	DESCRIPTION = "apollo is a command line utility which helps you being healthy by reminding you to take breaks at fixed intervals of time."
 )
 
@@ -36,7 +36,7 @@ func startLoop(jobs chan notification) {
 
 	exerciseInit := time.Now()
 
-	jobs <- notification{"Apollo Alarm", "Apollo has been started"}
+	jobs <- notification{"Apollo Alarm", "Apollo has been started."}
 
 	for {
 		screen.MoveTopLeft()

@@ -18,7 +18,7 @@ func notifier(jobs <-chan notification) {
 
 	for entry := range jobs {
 		if config.PlayBeep {
-			if err := beeep.Beep(beeep.DefaultFreq, beeep.DefaultDuration); err != nil {
+			if err := beeep.Beep(beeep.DefaultFreq, 1500); err != nil {
 				fmt.Println("unable to play beep")
 				fmt.Println(err)
 			}
