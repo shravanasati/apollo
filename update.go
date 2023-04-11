@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/schollz/progressbar/v3"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -9,9 +10,7 @@ import (
 	"path/filepath"
 	"runtime"
 	"strings"
-	"github.com/schollz/progressbar/v3"
 )
-
 
 // getDownloadURL returns the os-specific url to download apollo from.
 func getDownloadURL() string {
@@ -28,7 +27,6 @@ func getDownloadURL() string {
 		return ""
 	}
 }
-
 
 // download downloads the apollo executable from github and returns the path to the downloaded executable.
 func download() string {
