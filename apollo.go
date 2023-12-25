@@ -55,7 +55,14 @@ func startLoop(jobs chan notification) {
 		}
 
 		for k, v := range timeouts_inits {
-			fmt.Printf("Time passed since the last %s: %v.\n", k, time.Since(v).Round(time.Second))
+			passed := time.Since(v).Round(time.Second)
+			timeoutDuration, err := time.ParseDuration(fmt.Sprintf("%vs", config.Timeouts[k]))
+			if err != nil {
+				panic("unable to parse timeouts!")
+			}
+			remaining := timeoutDuration - passed
+
+			fmt.Printf("Time passed, remaining since the last %s: %v, %v.\n", k, passed, remaining)
 		}
 
 		time.Sleep(time.Second)
