@@ -18,11 +18,11 @@ func getDownloadURL() string {
 
 	switch runtime.GOOS {
 	case "windows":
-		return "https://github.com/Shravan-1908/apollo/releases/latest/download/apollo-windows-amd64.exe"
+		return "https://github.com/shravanasati/apollo/releases/latest/download/apollo-windows-amd64.exe"
 	case "linux":
-		return "https://github.com/Shravan-1908/apollo/releases/latest/download/apollo-linux-amd64"
+		return "https://github.com/shravanasati/apollo/releases/latest/download/apollo-linux-amd64"
 	case "darwin":
-		return "https://github.com/Shravan-1908/apollo/releases/latest/download/apollo-darwin-amd64"
+		return "https://github.com/shravanasati/apollo/releases/latest/download/apollo-darwin-amd64"
 	default:
 		return ""
 	}

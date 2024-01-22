@@ -7,7 +7,7 @@ It can be used as tool to remind you to do tasks, like taking a eye break every 
 ### Installation
 
 ```
-go install github.com/Shravan-1908/apollo@latest
+go install github.com/shravanasati/apollo@latest
 ```
 
 ### Usage

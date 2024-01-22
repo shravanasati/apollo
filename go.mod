@@ -1,4 +1,4 @@
-module github.com/Shravan-1908/apollo
+module github.com/shravanasati/apollo
 
 go 1.16
 
