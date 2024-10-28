@@ -10,5 +10,5 @@ require (
 	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/schollz/progressbar/v3 v3.7.2
 	github.com/thatisuday/commando v1.0.4
-	golang.org/x/sys v0.0.0-20210809222454-d867a43fc93e // indirect
+	golang.org/x/sys v0.1.0 // indirect
 )
