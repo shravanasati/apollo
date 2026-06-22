@@ -1,6 +1,6 @@
 # apollo
 
-A simple CLI tool that allows to have recurring infinite timers.
+A simple CLI tool that allows to have recurring timers.
 
 It can be used as tool to remind you to do tasks, like taking a eye break every few minutes.
 
@@ -24,7 +24,8 @@ This is the apollo config file located at `~/.apollo`.
         "water_timeout": 1800
     },
     "play_beep": true,
-    "notify": true
+    "notify": true,
+    "play_speech": true
 }
 ```
 
