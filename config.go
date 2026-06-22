@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"path/filepath"
+	"time"
 )
 
 type Configuration struct {
@@ -35,4 +37,18 @@ func writeConfig(c *Configuration) {
 		panic(e)
 	}
 	writeFile(configFile, jsonStr)
+}
+
+type ParsedDurations map[string]time.Duration
+
+func parseDurationsFromConfig(c *Configuration) ParsedDurations {
+	pt := make(ParsedDurations)
+	for k, v := range c.Timeouts {
+		timeoutDuration, err := time.ParseDuration(fmt.Sprintf("%vs", v))
+		if err != nil {
+			continue
+		}
+		pt[k] = timeoutDuration
+	}
+	return pt
 }

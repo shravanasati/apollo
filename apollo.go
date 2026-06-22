@@ -2,10 +2,14 @@ package main
 
 import (
 	"fmt"
+	"maps"
+	"path/filepath"
+	"slices"
+	"sort"
+	"time"
+
 	"github.com/inancgumus/screen"
 	"github.com/thatisuday/commando"
-	"path/filepath"
-	"time"
 )
 
 const (
@@ -41,6 +45,7 @@ func startLoop(jobs chan notification) {
 	config := getConfig()
 
 	timeouts_inits := initTimeoutsFromConfig(*config)
+	parsedDurations := parseDurationsFromConfig(config)
 
 	jobs <- notification{"Apollo Alarm", "Apollo has been started."}
 
@@ -54,15 +59,29 @@ func startLoop(jobs chan notification) {
 			}
 		}
 
+		timeoutKeys := slices.Collect(maps.Keys(timeouts_inits))
+		passedTimes := map[string]time.Duration{}
+		remainingTimes := map[string]time.Duration{}
 		for k, v := range timeouts_inits {
 			passed := time.Since(v).Round(time.Second)
-			timeoutDuration, err := time.ParseDuration(fmt.Sprintf("%vs", config.Timeouts[k]))
-			if err != nil {
-				panic("unable to parse timeouts!")
-			}
-			remaining := timeoutDuration - passed
+			passedTimes[k] = passed
+			remaining := parsedDurations[k] - passed
+			remainingTimes[k] = remaining
+		}
 
-			fmt.Printf("Time passed, remaining since the last %s: %v, %v.\n", k, passed, remaining)
+		comparator := func(i , j int) bool  {
+			iSeconds := passedTimes[timeoutKeys[i]].Seconds()
+			jSeconds := passedTimes[timeoutKeys[j]].Seconds()
+			if iSeconds == jSeconds {
+				return remainingTimes[timeoutKeys[i]] < remainingTimes[timeoutKeys[j]]
+			}
+			return iSeconds < jSeconds
+		}
+
+		sort.Slice(timeoutKeys, comparator)
+
+		for _, k := range timeoutKeys {
+			fmt.Printf("Time passed, remaining since the last %s: %v, %v.\n", k, passedTimes[k], remainingTimes[k])
 		}
 
 		time.Sleep(time.Second)
