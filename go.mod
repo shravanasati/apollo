@@ -6,6 +6,7 @@ require (
 	github.com/gen2brain/beeep v0.0.0-20210529141713-5586760f0cc1
 	github.com/godbus/dbus/v5 v5.0.4 // indirect
 	github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1 // indirect
+	github.com/hegedustibor/htgo-tts v0.0.0-20240912200108-467b3e535435 // indirect
 	github.com/inancgumus/screen v0.0.0-20190314163918-06e984b86ed3
 	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/schollz/progressbar/v3 v3.7.2

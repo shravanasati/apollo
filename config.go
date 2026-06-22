@@ -5,9 +5,10 @@ import (
 )
 
 type Configuration struct {
-	Timeouts map[string]int `json:"timeouts"`
-	PlayBeep bool           `json:"play_beep"`
-	Notify   bool           `json:"notify"`
+	Timeouts   map[string]int `json:"timeouts"`
+	PlayBeep   bool           `json:"play_beep"`
+	Notify     bool           `json:"notify"`
+	PlaySpeech bool           `json:"play_speech"`
 }
 
 // getConfig reads the config file and returns a Configuration struct.
