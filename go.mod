@@ -1,6 +1,6 @@
 module github.com/shravanasati/apollo
 
-go 1.24
+go 1.25.0
 
 require (
 	github.com/gen2brain/beeep v0.0.0-20210529141713-5586760f0cc1
@@ -23,6 +23,6 @@ require (
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/tadvi/systray v0.0.0-20190226123456-11a2b8fa57af // indirect
 	github.com/thatisuday/clapper v1.0.10 // indirect
-	golang.org/x/crypto v0.0.0-20201112155050-0c6587e931a9 // indirect
-	golang.org/x/sys v0.1.0 // indirect
+	golang.org/x/crypto v0.54.0 // indirect
+	golang.org/x/sys v0.47.0 // indirect
 )
